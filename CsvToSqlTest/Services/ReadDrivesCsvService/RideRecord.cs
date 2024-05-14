@@ -12,6 +12,9 @@ namespace CsvToSqlTest.Services.ReadDrivesCsvService
 {
     public class RideRecord
     {
+        [Name("Id")]
+        [Optional]
+        public int Id { get; set; }
         [Name("tpep_pickup_datetime")]
         public DateTime TpepPickupDatetime { get; set; }
 
@@ -23,7 +26,7 @@ namespace CsvToSqlTest.Services.ReadDrivesCsvService
         public int PassengerCount { get; set; }
 
         [Name("trip_distance")]
-        public float TripDistance { get; set; }
+        public decimal TripDistance { get; set; }
 
         [Name("store_and_fwd_flag")]
         public string? StoreAndFwdFlag { get; set; }
@@ -35,10 +38,10 @@ namespace CsvToSqlTest.Services.ReadDrivesCsvService
         public int DOLocationID { get; set; }
 
         [Name("fare_amount")]
-        public float FareAmount { get; set; }
+        public decimal FareAmount { get; set; }
 
         [Name("tip_amount")]
-        public float TipAmount { get; set; }
+        public decimal TipAmount { get; set; }
 
         public Ride ToDriveEntity()
         {

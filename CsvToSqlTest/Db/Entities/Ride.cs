@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CsvHelper.Configuration.Attributes;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -10,7 +11,7 @@ namespace CsvToSqlTest.Db.Entities
 {
     public class Ride
     {
-        [Column("Id")]
+        [Column("Id")]     
         public int Id { get; set; }
 
         [Column("tpep_pickup_datetime")]
@@ -22,8 +23,8 @@ namespace CsvToSqlTest.Db.Entities
         [Column("passenger_count")]
         public int PassengerCount { get; set; }
 
-        [Column("trip_distance")]
-        public float TripDistance { get; set; }
+        [Column("trip_distance", TypeName = "decimal(5,2)")]        
+        public decimal TripDistance { get; set; }
 
         [Column("store_and_fwd_flag")]
         public string? StoreAndFwdFlag { get; set; }
@@ -34,10 +35,10 @@ namespace CsvToSqlTest.Db.Entities
         [Column("DOLocationID")]
         public int DOLocationID { get; set; }
 
-        [Column("fare_amount")]
-        public float FareAmount { get; set; }
+        [Column("fare_amount",  TypeName = "decimal(5,2)")]
+        public decimal FareAmount { get; set; }
 
-        [Column("tip_amount")]
-        public float TipAmount { get; set; }
+        [Column("tip_amount", TypeName = "decimal(5,2)")]
+        public decimal TipAmount { get; set; }
     }
 }
