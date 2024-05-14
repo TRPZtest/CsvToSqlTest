@@ -33,7 +33,7 @@ namespace CsvToSqlTest
 
             _csvService.WriteDriveRecords(records);
 
-            _logger.LogInformation($"Duplicates was written to Duplicates.pdf");
+            _logger.LogInformation($"Duplicates was written to Duplicates.csv");
 
             System.Environment.Exit(0);
         }
