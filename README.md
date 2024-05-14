@@ -1,6 +1,6 @@
 Hi!
 
-Number of rows in the table after first running the program is 29889.
+Number of rows in the table after running the program is 29889.
 File with deleted rows will be created in root folder of project(Not solution and not in Debug folder). 
 
  > Assume your program will be used on much larger data files. Describe in a few sentences what you would change if you knew it would be used for a 10GB CSV input file.
