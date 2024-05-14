@@ -9,7 +9,7 @@ var builder = Host.CreateApplicationBuilder(args);
 
 var configurationData = builder.Configuration.Get<ConfigurationData>();
 
-builder.Services.AddHostedService<Worker>();
+builder.Services.AddHostedService<EtlWorker>();
 builder.Services.AddSingleton<ConfigurationData>(configurationData);
 
 builder.Services.AddDbContext<AppDbContext>(options => options.UseSqlServer(configurationData.ConnectionString),  ServiceLifetime.Singleton);

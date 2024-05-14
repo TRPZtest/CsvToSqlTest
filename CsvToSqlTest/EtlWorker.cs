@@ -4,14 +4,14 @@ using CsvToSqlTest.Services.ReadDrivesCsvService;
 
 namespace CsvToSqlTest
 {
-    public class Worker : BackgroundService
+    public class EtlWorker : BackgroundService
     {
         private readonly AddRecordsService _addRecordsService;
         private readonly CsvService _csvService;
         private readonly DuplicateService _duplicateService;
-        private readonly ILogger<Worker> _logger;
+        private readonly ILogger<EtlWorker> _logger;
 
-        public Worker(ILogger<Worker> logger, AddRecordsService addRecordsService, CsvService readCsvService, DuplicateService duplicateService)
+        public EtlWorker(ILogger<EtlWorker> logger, AddRecordsService addRecordsService, CsvService readCsvService, DuplicateService duplicateService)
         {
             _addRecordsService = addRecordsService;
             _csvService = readCsvService;
@@ -33,7 +33,7 @@ namespace CsvToSqlTest
 
             _csvService.WriteDriveRecords(records);
 
-            _logger.LogInformation($"Duplicates was written to Duplicates.pdf");
+            _logger.LogInformation($"Duplicates was written to Duplicates.csv");
 
             System.Environment.Exit(0);
         }
