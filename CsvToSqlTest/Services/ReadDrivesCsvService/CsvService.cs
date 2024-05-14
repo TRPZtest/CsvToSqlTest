@@ -9,10 +9,10 @@ using System.Threading.Tasks;
 
 namespace CsvToSqlTest.Services.ReadDrivesCsvService
 {
-    public class ReadCsvService
+    public class CsvService
     {
         private string _path;
-        public ReadCsvService(ConfigurationData configuration)
+        public CsvService(ConfigurationData configuration)
         {
             _path = configuration.FilePath;
         }
@@ -26,6 +26,15 @@ namespace CsvToSqlTest.Services.ReadDrivesCsvService
             var records =  csv.GetRecords<RideRecord>().ToList();
 
             return records;
+        }
+
+        public void WriteDriveRecords(List<RideRecord> records)
+        {
+            using (var writer = new StreamWriter("Duplicates.csv"))
+            using (var csv = new CsvWriter(writer, CultureInfo.InvariantCulture))
+            {
+                csv.WriteRecords(records);
+            }
         }
     }
 }

@@ -18,7 +18,7 @@ namespace CsvToSqlTest.Services.DuplicateService
             _dbContext = dbContext;
         }
 
-        public async Task<List<Ride>> RemoveAndGetDuplicateRides()
+        public async Task<List<Ride>> DeleteAndGetDuplicateRides()
         {
             var query = @"
                 DELETE T OUTPUT DELETED.*
